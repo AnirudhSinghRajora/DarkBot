@@ -42,7 +42,13 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
 
+    if message.content.startswith('evil laugh'):
+        await message.channel.send('https://media.tenor.com/videos/f95af79b0413da78ead42e739c1857d8/mp4')
 
 
 

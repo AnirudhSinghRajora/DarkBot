@@ -33,6 +33,18 @@ async def automeme():
     meme_channel = client.get_channel(764758915292332032)
     await meme_channel.send(embed=memebed)
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('hello'):
+        await message.channel.send('Hello!')
+
+
+
+
+
 
 
 client.run(token)

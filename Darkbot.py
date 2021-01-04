@@ -36,7 +36,7 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
 
-@@bot.command(pass_context=True)
+@bot.command(pass_context=True)
 async def ping(ctx):
     """ Pong! """
     await delete_message(ctx.message)

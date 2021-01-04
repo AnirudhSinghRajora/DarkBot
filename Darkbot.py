@@ -50,6 +50,13 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/the-grinch-evil-smile-creepy-smile-gif-7618321')
 
 
+    if message.content.startswith('abe saale'):
+        await message.channel.send('https://tenor.com/view/abe-saale-sabbir31x-harmonium-sale-gif-15727715')
+    
 
 
+
+    if message.content.startswith('Mar saale ko'):
+        await messsage.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
+       
 client.run(token)

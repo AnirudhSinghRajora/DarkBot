@@ -48,7 +48,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('evil laugh'):
-        await message.channel.send('https://media.tenor.com/videos/f95af79b0413da78ead42e739c1857d8/mp4')
+        await message.channel.send('https://tenor.com/view/the-grinch-evil-smile-creepy-smile-gif-7618321')
 
 
 

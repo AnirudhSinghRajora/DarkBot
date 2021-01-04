@@ -36,8 +36,13 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
 
+@client.event
+async def on_ready():
+   automeme.start()
+   print("bot is online")
 @tasks.loop(minutes=10)
 async def automeme():
+    
     url = "https://meme-api.herokuapp.com/gimme/dankmemes"
     response = urllib.request.urlopen(url)      
     data = json.loads(response.read()) 
@@ -49,11 +54,6 @@ async def automeme():
     memebed.set_image(url=img_url)
     meme_channel = client.get_channel(764758915292332032)
     await meme_channel.send(embed=memebed)
-@automeme.before_loop
-async def beforeautomeme():
-    print("Waiting Until Ready...")
-    await client.wait_until_ready()
-    print("Bot Ready!")
 
 
 @client.event

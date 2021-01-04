@@ -57,6 +57,6 @@ async def on_message(message):
 
 
     if message.content.startswith('Mar saale ko'):
-        await messsage.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
+        await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
 client.run(token)

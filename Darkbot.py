@@ -1,4 +1,14 @@
 import discord
 from discord.ext import commands
-bot = commands.Bot(command_prefix="^")
-bot.run("Nzk1Mjk1MDQxMDk3Njk1MjYy.X_HSOQ.hTgqQc_laJYmqoC53PdHRn0RWFI")
+token = 'NzY1MDg3Mzc2OTQxOTA4MDA4.X4PtJQ.o4ww6_d4gWO_MlIWE7HJieGDq5w'
+client = discord.Client()
+
+
+@client.event
+async def on_ready():
+    print('Logged in as')
+    print(client.user.name)
+    print(client.user.id)
+    print('------')
+
+client.run(token)

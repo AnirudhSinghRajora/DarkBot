@@ -42,10 +42,9 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+
+
+     
 
     if message.content.startswith('evil laugh'):
         await message.channel.send('https://tenor.com/view/the-grinch-evil-smile-creepy-smile-gif-7618321')

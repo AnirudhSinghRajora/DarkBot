@@ -36,10 +36,15 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
 
-@client.command()
- async def ping(ctx):
-    await ctx.send(f"Pong! {round(client.latency * 1000)}ms")
-
+@@bot.command(pass_context=True)
+async def ping(ctx):
+    """ Pong! """
+    await delete_message(ctx.message)
+    before = time.monotonic()
+    message = await ctx.send("Pong!")
+    ping = (time.monotonic() - before) * 1000
+    await message.edit(content=f"Pong!  `{int(ping)}ms`")
+    print(f'Ping {int(ping)}ms')
 
 
 

@@ -18,7 +18,7 @@ async def on_ready():
 async def on_ready():
    automeme.start()
    print("bot is online")
-@tasks.loop(minutes=3)
+@tasks.loop(minutes=10)
 async def automeme():
     
     url = "https://meme-api.herokuapp.com/gimme/dankmemes"

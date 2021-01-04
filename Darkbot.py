@@ -55,4 +55,9 @@ async def beforeautomeme():
     await client.wait_until_ready()
     print("Bot Ready!")
 
+
+@client.event
+async def on_ready():
+    await client.change_presence(activity=discord.Game('Ninja is Hattori Hazno!'))
+
 client.run(token)

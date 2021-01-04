@@ -6,24 +6,24 @@ import random
 token = 'Nzk1Mjk1MDQxMDk3Njk1MjYy.X_HSOQ.CAhkE9uOrM3UoAg5CZN4QSyrj-E'
 
 
-bot = commands.Bot(command_prefix="!")
+client = discord.Client()
 
-@bot.event
+@client.event
 async def on_ready():
     print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
+    print(client.user.name)
+    print(client.user.id)
     print('------')
 
-@bot.event
+@client.event
 async def on_ready():
    automeme.start()
    print("bot is online")
 
 
-@bot.event
+@client.event
 async def on_message(message):
-    if message.author == bot.user:
+    if message.author == client.user:
         return
 
     if message.content.lower().startswith('hello'):
@@ -36,9 +36,9 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
 
-@bot.command(ping)
+@client.command()
  async def ping(ctx):
-    await ctx.send(f"Pong! {round(bot.latency * 1000)}ms")
+    await ctx.send(f"Pong! {round(client.latency * 1000)}ms")
 
 
 
@@ -54,12 +54,12 @@ async def automeme():
     memebed = discord.Embed(title=img_title,url=img_url,color=random.randint(0,0xffffff))
     
     memebed.set_image(url=img_url)
-    meme_channel = bot.get_channel(764758915292332032)
+    meme_channel = client.get_channel(764758915292332032)
     await meme_channel.send(embed=memebed)
 @automeme.before_loop
 async def beforeautomeme():
     print("Waiting Until Ready...")
-    await bot.wait_until_ready()
+    await client.wait_until_ready()
     print("Bot Ready!")
 
-bot.run(token)
+client.run(token)

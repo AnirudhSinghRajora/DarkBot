@@ -21,7 +21,7 @@ async def automeme():
     memebed = discord.Embed(title=img_title,url=img_url,color=random.randint(0,0xffffff))
     
     memebed.set_image(url=img_url)
-    meme_channel = bot.get_channel(764758915292332032)
+    meme_channel = client.get_channel(764758915292332032)
     await meme_channel.send(embed=memebed)
 
 client.run(token)

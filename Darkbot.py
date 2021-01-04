@@ -19,6 +19,21 @@ async def on_ready():
 async def on_ready():
    automeme.start()
    print("bot is online")
+@tasks.loop(minutes=10)
+async def automeme():
+    
+    url = "https://meme-api.herokuapp.com/gimme/dankmemes"
+    response = urllib.request.urlopen(url)      
+    data = json.loads(response.read()) 
+    img_url = data['url']   
+    post_link = data['postLink']
+    img_title = data['title']
+    memebed = discord.Embed(title=img_title,url=img_url,color=random.randint(0,0xffffff))
+    
+    memebed.set_image(url=img_url)
+    meme_channel = client.get_channel(764758915292332032)
+    await meme_channel.send(embed=memebed)
+
 
 
 @client.event
@@ -36,24 +51,6 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
 
-@client.event
-async def on_ready():
-   automeme.start()
-   print("bot is online")
-@tasks.loop(minutes=10)
-async def automeme():
-    
-    url = "https://meme-api.herokuapp.com/gimme/dankmemes"
-    response = urllib.request.urlopen(url)      
-    data = json.loads(response.read()) 
-    img_url = data['url']   
-    post_link = data['postLink']
-    img_title = data['title']
-    memebed = discord.Embed(title=img_title,url=img_url,color=random.randint(0,0xffffff))
-    
-    memebed.set_image(url=img_url)
-    meme_channel = client.get_channel(764758915292332032)
-    await meme_channel.send(embed=memebed)
 
 
 @client.event

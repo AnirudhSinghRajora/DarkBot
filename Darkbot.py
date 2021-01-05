@@ -40,4 +40,10 @@ async def on_message(message):
     elif message.content.lower().startswith('mar saale ko'):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
+
+@client.event
+async def on_ready():
+    await client.change_presence(activity=discord.Game('Ninja is a Pro'))
+
+
 client.run(token)

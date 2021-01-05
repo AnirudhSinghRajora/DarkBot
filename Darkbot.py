@@ -3,23 +3,14 @@ from discord.ext import commands,tasks
 import json
 import urllib.request
 import random
+client = discord.Client()
 token = 'Nzk1Mjk1MDQxMDk3Njk1MjYy.X_HSOQ.CAhkE9uOrM3UoAg5CZN4QSyrj-E'
 
 
-client = discord.Client()
-
-@client.event
-async def on_ready():
-    print('Logged in as')
-    print(client.user.name)
-    print(client.user.id)
-    print('------')
-    
-    
 @client.event
 async def on_ready():
    automeme.start()
-   print("client is online")
+   print("bot is online")
 @tasks.loop(minutes=10)
 async def automeme():
     
@@ -35,7 +26,6 @@ async def automeme():
     meme_channel = client.get_channel(764758915292332032)
     await meme_channel.send(embed=memebed)
 
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -50,11 +40,4 @@ async def on_message(message):
     elif message.content.lower().startswith('mar saale ko'):
         await message.channel.send('https://tenor.com/view/moumita-khopdi-tod-re-saale-ka-pointing-gif-15226261')
        
-
-
-
-@client.event
-async def on_ready():
-    await client.change_presence(activity=discord.Game('Ninja is Hattori Hazno!'))
-
 client.run(token)

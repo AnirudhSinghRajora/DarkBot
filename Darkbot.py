@@ -14,11 +14,12 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('------')
-
+    
+    
 @client.event
 async def on_ready():
    automeme.start()
-   print("bot is online")
+   print("client is online")
 @tasks.loop(minutes=10)
 async def automeme():
     
@@ -33,7 +34,6 @@ async def automeme():
     memebed.set_image(url=img_url)
     meme_channel = client.get_channel(764758915292332032)
     await meme_channel.send(embed=memebed)
-
 
 
 @client.event

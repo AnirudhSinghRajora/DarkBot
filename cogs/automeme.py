@@ -12,7 +12,7 @@ class automeme(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self): 
     	print("online.")
-    	await self.bot.change_presence(activity=discord.Game('Ninja is a pro'))
+    	await self.bot.change_presence(activity=discord.Game('Minecraft is Op'))
     	self.automeme.start()
    
     

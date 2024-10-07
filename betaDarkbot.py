@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands,tasks
 import os
 
-token = 'Nzk1Mjk1MDQxMDk3Njk1MjYy.GMdfop.DKryJID2II1Xv5C6E35DtTG9eTRf3Wuu_R7uck'
+token = ''
 bot = commands.Bot(command_prefix="$")
 
 
